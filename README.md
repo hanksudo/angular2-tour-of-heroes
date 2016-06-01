@@ -21,10 +21,13 @@ ng build -prod
 # test
 ng test
 
-# generate component, model, service
+# generate component, model, service, route
 ng generate component hero-detail
 ng generate class shared/hero
 ng generate service shared/hero
+ng generate route dashboard
+ng generate route heroes
+ng generate route hero-detail
 
 # Deploy to github page
 ng github-pages:deploy

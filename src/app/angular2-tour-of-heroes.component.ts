@@ -4,6 +4,7 @@ import { Routes, Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/rou
 import { HeroService } from './shared';
 import { DashboardComponent } from './+dashboard';
 import { HeroesComponent } from './+heroes';
+import { HeroDetailComponent } from './+hero-detail';
 
 @Component({
   moduleId: module.id,
@@ -16,6 +17,7 @@ import { HeroesComponent } from './+heroes';
 @Routes([
   {path: '/dashboard', component: DashboardComponent},
   {path: '/heroes', component: HeroesComponent},
+  {path: '/hero/:id', component: HeroDetailComponent}
 ])
 export class Angular2TourOfHeroesAppComponent implements OnInit {
   title = 'One Piece';
