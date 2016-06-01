@@ -31,6 +31,7 @@ const barrels: string[] = [
   'app/shared',
   'app/hero-detail',
   'app/+heroes',
+  'app/+dashboard',
   /** @cli-barrel */
 ];
 

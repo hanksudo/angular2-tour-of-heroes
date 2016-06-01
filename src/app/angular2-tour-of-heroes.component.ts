@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Routes, Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 
 import { HeroService } from './shared';
+import { DashboardComponent } from './+dashboard';
 import { HeroesComponent } from './+heroes';
 
 @Component({
@@ -13,9 +14,17 @@ import { HeroesComponent } from './+heroes';
   providers: [ROUTER_PROVIDERS, HeroService]
 })
 @Routes([
-  {path: '/heroes', component: HeroesComponent}
+  {path: '/dashboard', component: DashboardComponent},
+  {path: '/heroes', component: HeroesComponent},
 ])
-export class Angular2TourOfHeroesAppComponent {
+export class Angular2TourOfHeroesAppComponent implements OnInit {
   title = 'One Piece';
+ 
+  constructor(private router: Router) {}
+  
+  ngOnInit() {
+    // default route, use this till @angular2/router support useAsDefault: true
+    this.router.navigate(['/dashboard']);
+  }
 
 }
