@@ -19,7 +19,18 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.heroService.getHeroes().then(heroes => this.heroes = heroes.slice(1,5));
+    this.heroService.getHeroes().then(heroes => {
+      let pickedHeroes = [];
+      let randomHero: Hero;
+      
+      while (pickedHeroes.length < 5 && pickedHeroes.length < heroes.length ) {
+        randomHero = heroes[Math.floor(Math.random() * heroes.length)];
+        pickedHeroes.push(randomHero);
+        heroes.splice(heroes.indexOf(randomHero), 1);
+      }
+      
+      this.heroes = pickedHeroes;
+    });
   }
   
   gotoDetail(hero: Hero) {
