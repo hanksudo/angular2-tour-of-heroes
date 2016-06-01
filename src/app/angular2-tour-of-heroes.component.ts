@@ -21,7 +21,6 @@ import { HeroDetailComponent } from './+hero-detail';
 ])
 export class Angular2TourOfHeroesAppComponent implements OnInit {
   title = 'One Piece';
- 
   constructor(private router: Router) {}
   
   ngOnInit() {
