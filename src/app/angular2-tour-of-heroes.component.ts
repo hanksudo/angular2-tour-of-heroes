@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Hero } from './shared';
+import { Component, OnInit } from '@angular/core';
+import { Hero, HeroService } from './shared';
 import { HeroDetailComponent } from './hero-detail';
 
 
@@ -8,24 +8,23 @@ import { HeroDetailComponent } from './hero-detail';
   selector: 'angular2-tour-of-heroes-app',
   templateUrl: 'angular2-tour-of-heroes.component.html',
   styleUrls: ['angular2-tour-of-heroes.component.css'],
-  directives: [HeroDetailComponent]
+  directives: [HeroDetailComponent],
+  providers: [HeroService]
 })
-export class Angular2TourOfHeroesAppComponent {
+export class Angular2TourOfHeroesAppComponent implements OnInit {
   title = 'One Piece';
-  heroes = HEROES;
+  heroes: Hero[];
   selectedHero: Hero;
+  
+  constructor(private heroService: HeroService) {}
+  
+  getHeroes() {
+    this.heroes = this.heroService.getHeroes();
+  }
+  
+  ngOnInit() {
+    this.getHeroes();
+  }
   
   onSelect(hero: Hero) { this.selectedHero = hero; }
 }
-
-var HEROES: Hero[] = [
-  { "id": 1, "name": "Monkey D.Luffy" },
-  { "id": 2, "name": "Roronoa Zoro" },
-  { "id": 3, "name": "Nami" },
-  { "id": 4, "name": "Usopp" },
-  { "id": 5, "name": "Vinsmoke Sanji" },
-  { "id": 6, "name": "Tony Tony Chopper" },
-  { "id": 7, "name": "Nico Robin" },
-  { "id": 8, "name": "Franky" },
-  { "id": 9, "name": "Brook" }
-];
