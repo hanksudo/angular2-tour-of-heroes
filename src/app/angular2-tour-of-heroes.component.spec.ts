@@ -15,8 +15,8 @@ describe('App: Angular2TourOfHeroes', () => {
     expect(app).toBeTruthy();
   }));
 
-  it('should have as title \'angular2-tour-of-heroes works!\'',
+  it('should have as title \'One Piece\'',
       inject([Angular2TourOfHeroesAppComponent], (app: Angular2TourOfHeroesAppComponent) => {
-    expect(app.title).toEqual('angular2-tour-of-heroes works!');
+    expect(app.title).toEqual('One Piece');
   }));
 });

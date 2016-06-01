@@ -9,6 +9,6 @@ describe('angular2-tour-of-heroes App', function() {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('angular2-tour-of-heroes works!');
+    expect(page.getParagraphText()).toEqual('One Piece');
   });
 });

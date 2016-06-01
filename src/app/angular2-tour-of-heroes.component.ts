@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+export class Hero {
+  id: number;
+  name: string;
+}
+
 @Component({
   moduleId: module.id,
   selector: 'angular2-tour-of-heroes-app',
@@ -7,5 +12,9 @@ import { Component } from '@angular/core';
   styleUrls: ['angular2-tour-of-heroes.component.css']
 })
 export class Angular2TourOfHeroesAppComponent {
-  title = 'angular2-tour-of-heroes works!';
+  title = 'One Piece';
+  hero: Hero = {
+    id: 1,
+    name: 'Monkey D.Luffy' 
+  }
 }

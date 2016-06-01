@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<h1>{{title}}</h1>
+<h2>{{hero.name}} details!</h2>
+<div>
+    <label>id: </label>{{hero.id}}
+</div>
+<div>
+    <input [(ngModel)]="hero.name" placeholder="name">
+</div>
