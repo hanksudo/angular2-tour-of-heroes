@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Routes, Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { HTTP_PROVIDERS } from '@angular/http';
 
 import { HeroService } from './shared';
 import { DashboardComponent } from './+dashboard';
@@ -12,7 +13,7 @@ import { HeroDetailComponent } from './+hero-detail';
   templateUrl: 'angular2-tour-of-heroes.component.html',
   styleUrls: ['angular2-tour-of-heroes.component.css'],
   directives: [ROUTER_DIRECTIVES],
-  providers: [ROUTER_PROVIDERS, HeroService]
+  providers: [ROUTER_PROVIDERS, HTTP_PROVIDERS, HeroService]
 })
 @Routes([
   {path: '/dashboard', component: DashboardComponent},

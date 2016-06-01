@@ -32,3 +32,10 @@ ng generate route hero-detail
 # Deploy to github page
 ng github-pages:deploy
 ``` 
+
+## Data server
+
+```bash
+npm install -g json-server
+json-server --port 4201 --watch db.json
+```
