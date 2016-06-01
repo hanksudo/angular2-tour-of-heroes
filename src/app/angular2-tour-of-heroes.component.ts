@@ -26,7 +26,7 @@ export class Angular2TourOfHeroesAppComponent implements OnInit {
   
   ngOnInit() {
     // default route, use this till @angular2/router support useAsDefault: true
-    this.router.navigate(['/dashboard']);
+    // this.router.navigate(['/dashboard']);
   }
 
 }

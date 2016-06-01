@@ -3,12 +3,21 @@
   <li *ngFor="let hero of heroes"
     [class.selected]="hero === selectedHero"
     (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
+    <span class="hero-element">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </span>
+    <button class="delete-button" (click)="delete(hero, $event)">Delete</button>
   </li>
 </ul>
+
+<button (click)="addHero()">Add New Hero</button>
+<div *ngIf="addingHero">
+  <app-hero-detail (close)="close($event)"></app-hero-detail>
+</div>
+
 <div *ngIf="selectedHero">
   <h2>
-    {{selectedHero.name | uppercase}} is my hero
+    {{ selectedHero.name | uppercase }} is my hero
   </h2>
   <button (click)="gotoDetail()">View Details</button>
 </div>

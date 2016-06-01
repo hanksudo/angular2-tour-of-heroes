@@ -17,6 +17,7 @@
     padding: .3em 0; 
     height: 1.6em;
     border-radius: 4px;
+    width: 20em;
 }
 .heroes li.selected:hover {
     background-color: #BBD8DC !important;
@@ -44,4 +45,9 @@
     height: 1.8em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
+}
+button.delete-button{
+  float:right;
+  background-color: gray !important;
+  color:white;
 }
