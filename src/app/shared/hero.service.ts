@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Hero } from '../shared';
 
@@ -10,16 +10,50 @@ export class HeroService {
   private heroesUrl = 'http://localhost:4201/heroes';
   
   getHero(id: number) {
-    return this.http.get(this.heroesUrl + '/' + id)
+    let url = `${this.heroesUrl}/${id}`;
+    return this.http.get(url)
                .toPromise()
-               .then(response => response.json())
+               .then(res => res.json())
                .catch(this.handleError);
   }
   
   getHeroes(): Promise<Hero[]> {
     return this.http.get(this.heroesUrl)
                .toPromise()
-               .then(response => response.json())
+               .then(res => res.json())
+               .catch(this.handleError);
+  }
+  
+  private post(hero: Hero): Promise<Hero> {
+    let headers = new Headers({
+      'Content-Type': 'application/json'});
+    
+    return this.http.post(this.heroesUrl, JSON.stringify(hero), {headers: headers})
+               .toPromise()
+               .then(res => res.json())
+               .catch(this.handleError);
+  }
+  
+  private put(hero: Hero): Promise<Hero> {
+    let headers = new Headers({
+      'Content-Type': 'application/json'});
+     
+    let url = `${this.heroesUrl}/${hero.id}`;
+    
+    return this.http.put(url, JSON.stringify(hero), {headers: headers})
+               .toPromise()
+               .then(() => hero)
+               .catch(this.handleError);
+  }
+  
+  private delete(hero: Hero) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'});
+     
+    let url = `${this.heroesUrl}/${hero.id}`;
+    
+    return this.http.delete(url, headers)
+               .toPromise()
                .catch(this.handleError);
   }
   

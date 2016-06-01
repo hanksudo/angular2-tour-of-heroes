@@ -38,4 +38,17 @@ ng github-pages:deploy
 ```bash
 npm install -g json-server
 json-server --port 4201 --watch db.json
+
+# read
+http :4201/heroes
+http :4201/heroes/1
+
+# create
+http -f POST :4201/heroes id=10 name=Jinbei
+
+# update
+http PUT :4201/heroes/1 name=CP9
+
+# delete
+http DELETE :4201/heroes/10
 ```
